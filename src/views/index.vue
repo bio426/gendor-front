@@ -24,6 +24,8 @@ onMounted(() => {
 		},
 	})
 })
+
+async function logout() {}
 </script>
 
 <template>
@@ -33,6 +35,7 @@ onMounted(() => {
 			<div class="p-4 bg-base-200 rounded-lg">
 				<h4 class="text-lg font-bold">My Chart</h4>
 				<canvas ref="lineChartCanvas" />
+				<button class="btn btn-warning" @click="logout">Logout</button>
 			</div>
 		</div>
 		<Navigation />

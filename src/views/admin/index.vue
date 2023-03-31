@@ -11,8 +11,8 @@ import Navigation from "../../components/Navigation.vue"
 			<h1 class="py-4 text-2xl font-bold text-center">Admin</h1>
 			<div class="grid grid-cols-1 gap-4">
 				<div class="flex justify-between p-4 bg-base-200 rounded-lg">
-					<span>Tags</span>
-					<router-link :to="{ name: 'adminTag' }">
+					<span>Categories</span>
+					<router-link :to="{ name: 'adminCategory' }">
 						<AdjustmentsHorizontalIcon class="w-6" />
 					</router-link>
 				</div>

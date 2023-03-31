@@ -1,26 +1,22 @@
-import pb from "./_base"
+import base from "./_base"
 import { ICategory, ICreateCategory } from "../interfaces/admin"
 
-const CategoriesColl = pb.collection("product_categories")
+const prefix = "admin"
 
-async function getTags() {
-	const res = await CategoriesColl.getList(1, 20)
+async function getCategories() {
+	const res = await base.get(prefix + "/category")
 
-	return res.items.map<ICategory>((item) => ({
-		id: item["id"],
-		name: item["name"],
-		color: item["color"],
-	}))
+	return await res.json<ICategory[]>()
 }
-async function createTag(body: ICreateCategory) {
-	await CategoriesColl.create(body)
+async function createCategory(body: ICreateCategory) {
+	await base.post(prefix + "/category", {
+		json: body,
+	})
 }
-async function deleteTag(id: string) {
-	await CategoriesColl.delete(id)
-}
+async function deleteCategory(id: string) {}
 
 export default {
-	getTags,
-	createTag,
-	deleteTag,
+	getCategories,
+	createCategory,
+	deleteCategory,
 }

@@ -12,13 +12,13 @@ const { showToast } = useToast()
 const rows = ref<ICategory[]>([])
 
 async function getRows() {
-	const data = await adminService.getTags()
+	const data = await adminService.getCategories()
 	rows.value = data
 }
 getRows()
 
-async function deleteTag(id: string) {
-	await adminService.deleteTag(id)
+async function deleteCategory(id: string) {
+	await adminService.deleteCategory(id)
 	getRows()
 }
 
@@ -60,11 +60,16 @@ const showCreateTag = ref(false)
 							<td>
 								<button
 									class="btn btn-sm btn-error"
-									@click="deleteTag(row.id)"
+									@click="deleteCategory(row.id)"
 									disabled
 								>
 									<TrashIcon class="w-4" />
 								</button>
+							</td>
+						</tr>
+						<tr v-if="rows.length == 0">
+							<td class="text-center" colspan="3">
+								No data to show
 							</td>
 						</tr>
 					</tbody>

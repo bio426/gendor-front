@@ -26,10 +26,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-	const { user } = useGlobalStore()
-	if (to.name != "auth" && !user) {
-		return { name: "auth" }
-	}
+	// const { user } = useGlobalStore()
+	// if (to.name != "auth" && !user) {
+	// 	return { name: "auth" }
+	// }
 })
 
 export default router

@@ -44,7 +44,7 @@ async function save() {
 		name: name.value,
 		color: color.value,
 	}
-	await adminService.createTag(body)
+	await adminService.createCategory(body)
 	showToast("New tag succesfully created", 2000)
 	handleClose()
 }

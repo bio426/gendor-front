@@ -4,11 +4,12 @@ export interface IProduct {
 	id: string
 	name: string
 	price: number
+	createdAt: Date
 	category: ICategory
 }
 
 export interface ICreateProduct {
 	name: string
 	price: number
-	category: string
+	category: number
 }

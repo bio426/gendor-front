@@ -1,44 +1,26 @@
-import pb from "./_base"
+import base from "./_base"
 import { IProduct, ICreateProduct } from "../interfaces/product"
 
-const prefix = "item"
-
-const productsColl = pb.collection("products")
+const prefix = "product"
 
 async function create(body: ICreateProduct) {
-	const res = await productsColl.create(body)
+	const res = await base.post(prefix, {
+		json: body,
+	})
 
-	return res
+	return res.status
 }
 
 async function list(query: { page: number; count: number; search: string }) {
-	const res = await productsColl.getList(query.page, query.count, {
-		expand: "category",
-	})
-	console.log(res.items)
+	const res = await base.get(prefix)
 
-	return {
-		total: res.totalItems,
-		rows: res.items.map<IProduct>((item) => {
-			const category = item.expand.category as any
-			return {
-				id: item["id"],
-				name: item["name"],
-				price: item["price"],
-				category: {
-					id: category["id"],
-					name: category["name"],
-					color: category["color"],
-				},
-			}
-		}),
-	}
+	return res.json<IProduct[]>()
 }
 
 async function read(id: string) {
-	const res = await productsColl.getOne(id)
+	const res = await base.get(prefix + `/${id}`)
 
-	return res
+	return res.json()
 }
 
 export default {

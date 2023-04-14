@@ -2,7 +2,7 @@
 import { ref, watch } from "vue"
 import { MagnifyingGlassIcon, FunnelIcon } from "@heroicons/vue/24/solid"
 
-import itemService from "../../services/product"
+import productService from "../../services/product"
 import Navigation from "../../components/Navigation.vue"
 import Pagination from "../../components/Pagination.vue"
 import Sidebar from "../../components/Sidebar.vue"
@@ -22,7 +22,7 @@ async function getRows() {
 		count: count.value,
 		search: search.value,
 	}
-	const data = await itemService.list(body)
+	const data = await productService.list(body)
 	total.value = data.total
 	rows.value = data.rows
 }

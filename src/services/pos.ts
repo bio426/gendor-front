@@ -1,15 +1,13 @@
-import pb from "./_base"
+import base from "./_base"
 
-const productsColl = pb.collection("products")
+const prefix = "/pos"
 
 async function getItems(query: { search: string }) {
-	const res = await productsColl.getList(1, 20)
+	const res = await base.get(prefix, {
+		searchParams: {},
+	})
 
-	return res.items.map((item) => ({
-		id: item["id"],
-		name: item["name"],
-		price: item["price"],
-	}))
+	return res.json<{}>()
 }
 
 export default {

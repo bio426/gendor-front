@@ -16,7 +16,7 @@ const { showToast } = useToast()
 const tagOpts = ref<ICategory[]>([])
 
 async function getTagOpts() {
-	const data = await adminService.getTags()
+	const data = await adminService.getCategories()
 	tagOpts.value = data
 }
 getTagOpts()

@@ -12,9 +12,14 @@ async function create(body: ICreateProduct) {
 }
 
 async function list(query: { page: number; count: number; search: string }) {
-	const res = await base.get(prefix)
+	const res = await base.get(prefix, {
+		searchParams: query,
+	})
 
-	return res.json<IProduct[]>()
+	return res.json<{
+		total: number
+		rows: IProduct[]
+	}>()
 }
 
 async function read(id: string) {

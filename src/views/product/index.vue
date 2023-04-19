@@ -26,8 +26,8 @@ async function getRows() {
 	total.value = data.total
 	rows.value = data.rows
 }
-watch(page, () => getRows())
 getRows()
+watch(page, () => getRows())
 
 // test Sidebar
 let showSidebar = ref(false)
@@ -63,11 +63,7 @@ function isDarkText(hexcolor: string) {
 							>
 								<FunnelIcon class="w-6 h-6" />
 							</button>
-							<button
-								class="btn btn-square"
-								type="submit"
-								@click="getRows"
-							>
+							<button class="btn btn-square" type="submit">
 								<MagnifyingGlassIcon class="w-6 h-6" />
 							</button>
 						</div>

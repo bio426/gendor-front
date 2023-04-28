@@ -39,6 +39,9 @@ const useMainStore = defineStore("main", () => {
 	return {
 		cart,
 		cartLength,
+		cartPrice,
+		addToCart,
+		removeFromCart,
 	}
 })
 

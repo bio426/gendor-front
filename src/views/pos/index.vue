@@ -28,7 +28,7 @@ async function getItems() {
 	const query = {
 		search: search.value,
 	}
-	const res = await posService.getItems(query)
+	const res = await posService.searchProducts(query)
 	items.value = res
 }
 getItems()

@@ -1,6 +1,6 @@
 import { ICategory } from "./admin"
 
-export interface IProduct {
+interface IProduct {
 	id: string
 	name: string
 	price: number
@@ -8,8 +8,10 @@ export interface IProduct {
 	category: ICategory
 }
 
-export interface ICreateProduct {
+interface ICreateProduct {
 	name: string
 	price: number
 	category: number
 }
+
+export type { IProduct, ICreateProduct }

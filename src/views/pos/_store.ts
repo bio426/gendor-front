@@ -1,9 +1,9 @@
 import { defineStore } from "pinia"
 import { ref, computed } from "vue"
 
-import type { IItem, ICartItem } from "./_types"
+import type { IPosProduct, ICartItem } from "../../interfaces/pos"
 
-const useMainStore = defineStore("main", () => {
+const useMainStore = defineStore("pos", () => {
 	const cart = ref<ICartItem[]>([])
 
 	const cartLength = computed(() =>
@@ -18,7 +18,7 @@ const useMainStore = defineStore("main", () => {
 		}, 0)
 	)
 
-	function addToCart(item: IItem) {
+	function addToCart(item: IPosProduct) {
 		let idx = cart.value.findIndex((cartItem) => cartItem.id == item.id)
 		if (idx == -1) {
 			cart.value.push({ ...item, quantity: 1 })

@@ -1,5 +1,6 @@
 {
 	"trailingComma": "es5",
+	"htmlWhitespaceSensitivity": "ignore",
 	"useTabs": true,
 	"tabWidth": 4,
 	"semi": false,

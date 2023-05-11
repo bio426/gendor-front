@@ -35,7 +35,7 @@ const showCreateTag = ref(false)
 				>
 					<ArrowUturnLeftIcon class="w-6 h-6 mt-1" />
 				</a>
-				Tags
+				Categories
 			</h1>
 			<div class="overflow-x-auto mb-4">
 				<table class="table table-zebra w-full">

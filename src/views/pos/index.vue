@@ -143,8 +143,9 @@ function toCart(item: IPosProduct) {
 					<router-link
 						class="btn btn-sm btn-success btn-block"
 						:to="{ name: 'posCart' }"
-						>Cart</router-link
 					>
+						Cart
+					</router-link>
 				</div>
 			</div>
 			<Navigation />

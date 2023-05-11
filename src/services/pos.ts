@@ -18,6 +18,12 @@ async function searchProducts(query: {
 	}>()
 }
 
+async function findClient(query: { ruc: number }) {
+	const res = await base.get(prefix + "/find-client", {
+		searchParams: query,
+	})
+}
+
 export default {
 	searchProducts,
 }

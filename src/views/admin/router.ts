@@ -13,6 +13,11 @@ const routesItem: RouteRecordRaw[] = [
 		name: "adminCategory",
 		component: () => import("./category.vue"),
 	},
+	{
+		path: prefix + "/vehicle",
+		name: "adminVehicle",
+		component: () => import("./vehicle.vue"),
+	},
 ]
 
 export default routesItem

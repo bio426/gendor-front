@@ -16,6 +16,12 @@ import Navigation from "../../components/Navigation.vue"
 						<AdjustmentsHorizontalIcon class="w-6" />
 					</router-link>
 				</div>
+				<div class="flex justify-between p-4 bg-base-200 rounded-lg">
+					<span>Vehicles</span>
+					<router-link :to="{ name: 'adminVehicle' }">
+						<AdjustmentsHorizontalIcon class="w-6" />
+					</router-link>
+				</div>
 			</div>
 			<div class="w-full h-36"></div>
 		</div>

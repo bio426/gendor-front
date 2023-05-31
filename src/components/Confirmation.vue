@@ -15,16 +15,26 @@ function handleReject() {
 </script>
 
 <template>
-	<Teleport to="#modals">
-		<input type="checkbox" id="confirmation-modal" class="modal-toggle" v-model="isActive" />
+	<!-- <Teleport to="#modals"> -->
+	<Teleport to="#confirmation">
+		<input
+			type="checkbox"
+			id="confirmation-modal"
+			class="modal-toggle"
+			v-model="isActive"
+		/>
 		<div class="modal">
 			<div class="modal-box relative">
 				<div>
 					modal content
 					<div class="h-12"></div>
 					<div class="grid grid-cols-2 gap-4">
-						<button class="btn btn-success" @click="handleAccept">Accept</button>
-						<button class="btn btn-error" @click="handleReject">Reject</button>
+						<button class="btn btn-success" @click="handleAccept">
+							Accept
+						</button>
+						<button class="btn btn-error" @click="handleReject">
+							Reject
+						</button>
 					</div>
 				</div>
 			</div>

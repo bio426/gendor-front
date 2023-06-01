@@ -2,7 +2,7 @@
 import { ref } from "vue"
 
 import useToast from "../composables/useToast"
-import useConfirmation from "../composables/useConfirmation"
+import useConfirmation from "@/composables/useConfirmation"
 import useGeneratePdf from "../composables/useGeneratePdf"
 import Navigation from "../components/Navigation.vue"
 import Overlay from "../components/Overlay.vue"

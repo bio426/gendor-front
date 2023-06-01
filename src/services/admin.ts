@@ -21,8 +21,12 @@ async function createCategory(body: ICreateCategory) {
 
 async function deleteCategory(id: string) {}
 
-async function getVehicles() {
-	const res = await base.get(prefix + "/vehicle/brand")
+async function getVehicles(query: {
+	search: string
+	count: number
+	page: number
+}) {
+	const res = await base.get(prefix + "/vehicle", { searchParams: query })
 
 	return await res.json<IVehicle[]>()
 }

@@ -1,10 +1,19 @@
-import { ref, watch } from "vue"
+import { ref, reactive, watch } from "vue"
 
 const isActive = ref(false)
 const acceptTrigger = ref(Symbol())
 const rejectTrigger = ref(Symbol())
+const modalContent = reactive({
+	title: "",
+	content: "",
+})
 
-function confirm(): Promise<boolean> {
+function confirm(
+	title: string = "Are you shure to realize this action?",
+	content: string = "You would not be able to revert this!"
+): Promise<boolean> {
+	modalContent.title = title
+	modalContent.content = content
 	isActive.value = true
 	return new Promise((resolve) => {
 		watch(acceptTrigger, () => {
@@ -18,11 +27,12 @@ function confirm(): Promise<boolean> {
 	})
 }
 
-export default function() {
+export default function () {
 	return {
 		isActive,
 		confirm,
 		acceptTrigger,
 		rejectTrigger,
+		modalContent,
 	}
 }

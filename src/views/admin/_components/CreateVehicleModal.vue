@@ -19,9 +19,11 @@ const props = defineProps<{
 const emit = defineEmits(["closing"])
 const isLoading = ref(false)
 function handleClose() {
+	isLoading.value = false
 	modelR()
 	brandR()
 	newBrandR()
+	createBrand.value = false
 	emit("closing")
 }
 

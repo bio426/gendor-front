@@ -3,7 +3,8 @@ import { ref } from "vue"
 
 import useConfirmation from "../composables/useConfirmation"
 
-const { isActive, acceptTrigger, rejectTrigger } = useConfirmation()
+const { isActive, acceptTrigger, rejectTrigger, modalContent } =
+	useConfirmation()
 const emit = defineEmits(["closing"])
 
 function handleAccept() {
@@ -15,7 +16,6 @@ function handleReject() {
 </script>
 
 <template>
-	<!-- <Teleport to="#modals"> -->
 	<Teleport to="#confirmation">
 		<input
 			type="checkbox"
@@ -26,7 +26,12 @@ function handleReject() {
 		<div class="modal">
 			<div class="modal-box relative">
 				<div>
-					modal content
+					<h3 class="text-lg text-center font-bold">
+						{{ modalContent.title }}
+					</h3>
+					<p class="py-4 text-center">
+						{{ modalContent.content }}
+					</p>
 					<div class="h-12"></div>
 					<div class="grid grid-cols-2 gap-4">
 						<button class="btn btn-success" @click="handleAccept">

@@ -5,22 +5,21 @@ import { ArrowUturnLeftIcon, TrashIcon } from "@heroicons/vue/24/solid"
 import adminService from "../../services/admin"
 import useToast from "../../composables/useToast"
 import CreateVehicleModal from "./_components/CreateVehicleModal.vue"
-import { ICategory } from "../../interfaces/admin"
+import { IVehicle } from "../../interfaces/admin"
 
 const { showToast } = useToast()
 
-const rows = ref<ICategory[]>([])
+const rows = ref<IVehicle[]>([])
 
 async function getRows() {
-	const data = await adminService.getCategories()
+	const data = await adminService.getVehicles({
+		search: "",
+		count: 20,
+		page: 1,
+	})
 	rows.value = data
 }
-// getRows()
-
-async function deleteCategory(id: string) {
-	await adminService.deleteCategory(id)
-	getRows()
-}
+getRows()
 
 const showCreateTag = ref(false)
 </script>
@@ -42,7 +41,7 @@ const showCreateTag = ref(false)
 					<thead>
 						<tr>
 							<th>Name</th>
-							<th>Color</th>
+							<th>Brand</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
@@ -52,17 +51,10 @@ const showCreateTag = ref(false)
 								{{ row.name }}
 							</td>
 							<td>
-								<span
-									class="inline-block w-4 h-4 mx-auto rounded-full bg-white"
-									:style="{ 'background-color': row.color }"
-								></span>
+								{{ row.brand }}
 							</td>
 							<td>
-								<button
-									class="btn btn-sm btn-error"
-									@click="deleteCategory(row.id)"
-									disabled
-								>
+								<button class="btn btn-sm btn-error" disabled>
 									<TrashIcon class="w-4" />
 								</button>
 							</td>

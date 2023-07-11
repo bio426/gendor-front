@@ -5,6 +5,7 @@ import Chart from "chart.js/auto"
 import "./style.css"
 import App from "./App.vue"
 import router from "./router"
+import "@/events"
 
 //config chart colors
 if (window.matchMedia("(prefers-color-scheme: dark)").matches) {

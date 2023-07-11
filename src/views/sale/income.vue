@@ -18,14 +18,6 @@ const curPage = ref(1)
 	<div class="relative w-full min-h-screen">
 		<div class="w-11/12 mx-auto">
 			<h1 class="py-4 text-2xl font-bold text-center">Sales</h1>
-			<div class="mb-2">
-				<router-link class="link" :to="{ name: 'saleOutcome' }">
-					Outcome
-				</router-link>
-				<router-link class="link" :to="{ name: 'saleIncome' }">
-					Income
-				</router-link>
-			</div>
 			<!-- Table -->
 			<!-- Total & pagination -->
 			<div class="mb-2">
